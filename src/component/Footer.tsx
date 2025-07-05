@@ -1,5 +1,4 @@
 // src/component/Footer.tsx
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa"; // Ícones de redes sociais (mantidos na importação, mas não usados)
 
 const Footer = () => {
   return (
