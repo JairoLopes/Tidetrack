@@ -53,48 +53,19 @@ O TideTrack é construído com tecnologias modernas do ecossistema JavaScript e 
 
 Siga os passos abaixo para configurar e executar o TideTrack em sua máquina local:
 
-1. **Clone o Repositório:**
-   
-   ```bash
-   git clone [https://github.com/seu-usuario/tidetrack.git](https://github.com/seu-usuario/tidetrack.git)
-   # Substitua 'seu-usuario' pelo seu nome de usuário ou pelo caminho correto do repositório
-   ```
-
-2. **Navegue até o Diretório do Projeto:**
-   
-   ```bash
-   cd tidetrack
-   ```
-
-3. **Instale as Dependências:**
+1. **Instale as Dependências:**
    Use `npm` ou `yarn` para instalar todas as bibliotecas e pacotes necessários:
    
    ```bash
    npm install
-   # ou
-   yarn install
    ```
 
-4. **Inicie o Servidor de Desenvolvimento:**
+2. **Inicie o Servidor de Desenvolvimento:**
    Após a instalação das dependências, você pode iniciar o aplicativo em modo de desenvolvimento:
    
    ```bash
-   npm start
-   # ou
-   yarn start
+   npm run dev
    ```
-   
-   O aplicativo será aberto em seu navegador padrão, geralmente em `http://localhost:3000`.
-
-## 🔒 Nossos Dados são Confiáveis?
-
-A **confiabilidade dos dados** é uma preocupação primordial para nós. As informações de previsão marítima que você vê no TideTrack vêm de uma fonte de alta qualidade e reconhecimento internacional: a **Open-Meteo**.
-
-A **Open-Meteo** é uma plataforma amplamente utilizada por desenvolvedores e pesquisadores por agregar e processar dados de modelos numéricos de previsão do tempo de **fontes renomadas e oficiais**. Isso inclui modelos de instituições como o Centro Europeu de Previsões Meteorológicas de Médio Prazo (ECMWF) e outras instituições meteorológicas nacionais e globais. Ou seja, a Open-Meteo não "inventa" os dados, mas sim os organiza e distribui a partir de **bases científicas sólidas**.
-
-É crucial entender que, mesmo com as melhores fontes e modelos, as informações apresentadas são **previsões**. Assim como a previsão do tempo para sua cidade, a previsão das condições do mar é uma **estimativa baseada em modelos complexos**. Fatores como mudanças repentinas nas condições atmosféricas ou no oceano podem influenciar a precisão.
-
-Portanto, embora o sistema utilize dados de alta credibilidade e dê uma **excelente estimativa** do que pode acontecer, é sempre bom usá-lo como uma ferramenta de apoio e estar ciente de que a natureza da previsão implica uma margem de variação. Ele é um guia confiável para suas decisões.
 
 ## 🧑‍💻 Para quem é útil?
 
