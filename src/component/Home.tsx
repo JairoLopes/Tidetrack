@@ -1,5 +1,7 @@
 // src/component/Home.tsx
 import React from "react";
+import { motion } from "framer-motion";
+import { slideUpFadeIn, growIn } from "../animation/animations";
 
 const Home: React.FC = () => {
   return (
@@ -33,17 +35,27 @@ const Home: React.FC = () => {
       {/* Conteúdo da Home Page */}
       <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
         {/* Nome da Empresa Estilizado com Novas Tonalidades de Azul e Sombreamento no "Track" */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight drop-shadow-lg">
+        <motion.h1
+          initial={growIn.initial}
+          whileInView={growIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight drop-shadow-lg"
+        >
           <span className="text-sky-500 drop-shadow-md drop-shadow-black">
             Tide
           </span>
           <span className="text-gray-950 drop-shadow-md drop-shadow-sky-500">
             Track
           </span>
-        </h1>
+        </motion.h1>
 
         {/* Slogan Mais Descritivo e Objetivo - ATUALIZADO */}
-        <p className="text-sm sm:text-lg mb-10  text-gray-300">
+        <motion.p
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
+          className="text-sm sm:text-lg mb-10  text-gray-300"
+        >
           Sua plataforma para{" "}
           <strong className="text-orange-500 font-semibold">
             monitoramento marítimo global
@@ -56,16 +68,19 @@ const Home: React.FC = () => {
           </span>
           , e tome decisões seguras para navegação, pesquisa e lazer em qualquer
           oceano.
-        </p>
+        </motion.p>
 
         {/* Botão com a cor de fundo da Navbar e nova tonalidade de azul */}
-        <a
+        <motion.a
+          initial={slideUpFadeIn.initial}
+          whileInView={slideUpFadeIn.animate}
+          transition={{ duration: 1, delay: 0.25 }}
           href="#previsoes"
           className="inline-block bg-sky-500/80 hover:bg-blue-600/70 text-white drop-shadow-lg drop-shadow-black font-semibold py-3 px-8 rounded-lg text-lg shadow-md
                      transition-colors duration-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
         >
           Ver Previsões
-        </a>
+        </motion.a>
       </div>
 
       <span id="previsoes" className="absolute bottom-5"></span>

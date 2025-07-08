@@ -7,6 +7,13 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { MdOutlineSecurity } from "react-icons/md";
+import { motion } from "framer-motion";
+import {
+  slideUpFadeIn,
+  growIn,
+  slideLeft,
+  slideRight,
+} from "../animation/animations";
 
 const Info: React.FC = () => {
   return (
@@ -14,13 +21,22 @@ const Info: React.FC = () => {
       className="p-6 pt-25 bg-gray-900 text-white font-sans min-h-screen"
       id="sobre-o-projeto"
     >
-      <h1 className="text-4xl font-extrabold mb-8 text-center text-sky-500 drop-shadow-md">
+      <motion.h1
+        initial={slideUpFadeIn.initial}
+        whileInView={slideUpFadeIn.animate}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="text-4xl font-extrabold mb-8 text-center text-sky-500 drop-shadow-md"
+      >
         Sobre o TideTrack
-      </h1>{" "}
-      {/* Nome do projeto atualizado aqui */}
+      </motion.h1>{" "}
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Visão Geral do Projeto - ATUALIZADO */}
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-blue-600 transition-all duration-300">
+        <motion.div
+          initial={slideRight.initial}
+          whileInView={slideRight.animate}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-blue-600 transition-all duration-300"
+        >
           <h2 className="text-2xl font-bold mb-4 text-purple-300 flex items-center">
             <FaGlobe className="w-7 h-7 mr-3 text-purple-400" /> O que você
             encontra aqui?
@@ -44,10 +60,15 @@ const Info: React.FC = () => {
             que você tenha acesso fácil a dados marítimos precisos, seja para
             planejar um passeio, uma viagem ou atividades profissionais.
           </p>
-        </div>
+        </motion.div>
 
         {/* Detalhes das APIs - INTRODUÇÃO ATUALIZADA */}
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-orange-600 transition-all duration-300">
+        <motion.div
+          initial={slideLeft.initial}
+          whileInView={slideLeft.animate}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-orange-600 transition-all duration-300"
+        >
           <h2 className="text-2xl font-bold mb-4 text-orange-300 flex items-center">
             <FaThermometerHalf className="w-7 h-7 mr-3 text-orange-400" /> Como
             obtemos os dados?
@@ -176,10 +197,15 @@ const Info: React.FC = () => {
               </div>
             </li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Credibilidade e Precisão dos Dados */}
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-green-600 transition-all duration-300">
+        <motion.div
+          initial={slideRight.initial}
+          whileInView={slideRight.animate}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-green-600 transition-all duration-300"
+        >
           <h2 className="text-2xl font-bold mb-4 text-rose-500 flex items-center">
             <MdOutlineSecurity className="w-7 h-7 mr-3 text-rose-500" /> Nossos
             Dados são Confiáveis?
@@ -227,10 +253,15 @@ const Info: React.FC = () => {
             a natureza da previsão implica uma margem de variação. Ele é um guia
             confiável para suas decisões.
           </p>
-        </div>
+        </motion.div>
 
         {/* Utilidade do Recurso */}
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-yellow-600 transition-all duration-300">
+        <motion.div
+          initial={slideLeft.initial}
+          whileInView={slideLeft.animate}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 hover:border-yellow-600 transition-all duration-300"
+        >
           <h2 className="text-2xl font-bold mb-4 text-yellow-300 flex items-center">
             <FaSearch className="w-7 h-7 mr-3 text-yellow-400" /> Para quem é
             útil?
@@ -284,7 +315,7 @@ const Info: React.FC = () => {
             rápida e visual de entender as condições futuras do mar para
             segurança, lazer ou trabalho pode tirar proveito desta ferramenta.
           </p>
-        </div>
+        </motion.div>
       </div>
       <span id="donate"></span>
     </section>

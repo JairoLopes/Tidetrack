@@ -13,7 +13,6 @@ import {
 } from "recharts";
 import type { Payload as RechartsPayload } from "recharts/types/component/DefaultTooltipContent";
 import type { TooltipProps } from "recharts/types/component/Tooltip";
-
 import { FaSpinner, FaSearch, FaLocationArrow } from "react-icons/fa";
 
 import * as L from "leaflet";
@@ -22,6 +21,8 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import debounce from "../utils/debounce";
+import { slideUpFadeIn, growIn } from "../animation/animations";
+import { motion } from "framer-motion";
 
 const defaultIcon = new Icon({
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
@@ -368,10 +369,21 @@ const MarineWeather: React.FC = () => {
 
   return (
     <main className="p-6 pt-25 bg-gray-900 min-h-screen text-white font-sans">
-      <h1 className="text-4xl font-extrabold mb-4 text-center text-blue-400 drop-shadow-md">
+      <motion.h1
+        initial={growIn.initial}
+        whileInView={growIn.animate}
+        transition={{ duration: 1, delay: 0.25 }}
+        className="text-4xl font-extrabold mb-4 text-center text-blue-400 drop-shadow-md"
+      >
         Monitoramento Marítimo Global
-      </h1>
-      <p className="text-md text-gray-300 max-w-3xl mx-auto mb-8 text-center leading-relaxed">
+      </motion.h1>
+
+      <motion.p
+        initial={slideUpFadeIn.initial}
+        whileInView={slideUpFadeIn.animate}
+        transition={{ duration: 1, delay: 0.25 }}
+        className="text-md text-gray-300 max-w-3xl mx-auto mb-8 text-center leading-relaxed"
+      >
         Este painel interativo utiliza a{" "}
         <a
           className="underline text-blue-400 hover:text-blue-300 transition-colors"
@@ -397,8 +409,14 @@ const MarineWeather: React.FC = () => {
         </span>{" "}
         para explorar a altura das ondas e a temperatura da água para a área
         selecionada.
-      </p>
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 text-center border border-gray-700 transition-all duration-300 hover:border-blue-600">
+      </motion.p>
+
+      <motion.div
+        initial={slideUpFadeIn.initial}
+        whileInView={slideUpFadeIn.animate}
+        transition={{ duration: 1, delay: 0.25 }}
+        className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 text-center border border-gray-700 transition-all duration-300 hover:border-blue-600"
+      >
         <h2 className="text-2xl font-bold mb-3 text-green-300">
           Buscar Localidade
         </h2>
@@ -437,9 +455,16 @@ const MarineWeather: React.FC = () => {
         {searchError && (
           <p className="text-red-400 text-sm mt-3">{searchError}</p>
         )}
-      </div>
+      </motion.div>
+
       <hr className="my-8 border-gray-700" />
-      <div className="w-full h-96 mb-8 rounded-lg overflow-hidden border-2 border-blue-500 shadow-xl transition-all duration-300 hover:shadow-2xl">
+
+      <motion.div
+        initial={growIn.initial}
+        whileInView={growIn.animate}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="w-full h-96 mb-8 rounded-lg overflow-hidden border-2 border-blue-500 shadow-xl transition-all duration-300 hover:shadow-2xl"
+      >
         <MapContainer
           key={`${coordinates.lat}-${coordinates.lon}-${mapZoom}`}
           center={[coordinates.lat, coordinates.lon]}
@@ -459,9 +484,16 @@ const MarineWeather: React.FC = () => {
             setMapZoom={setMapZoom}
           />
         </MapContainer>
-      </div>
+      </motion.div>
+
       <hr className="my-8 border-gray-700" />
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 border border-gray-700 transition-all duration-300 hover:border-blue-600">
+
+      <motion.div
+        initial={slideUpFadeIn.initial}
+        whileInView={slideUpFadeIn.animate}
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 border border-gray-700 transition-all duration-300 hover:border-blue-600"
+      >
         <div className="flex flex-col md:flex-row justify-between items-center mb-4">
           <h2 className="text-2xl font-bold text-blue-300 mb-4 md:mb-0">
             Localidade Selecionada
@@ -550,8 +582,10 @@ const MarineWeather: React.FC = () => {
             ponto.
           </p>
         )}
-      </div>
+      </motion.div>
+
       <hr className="my-8 border-gray-700" />
+
       {overallLoading && !error && (
         <div className="bg-blue-900 bg-opacity-30 rounded-lg p-3 text-center text-blue-200 flex items-center justify-center mb-8">
           <FaSpinner className="animate-spin w-5 h-5 mr-2" />
@@ -560,7 +594,12 @@ const MarineWeather: React.FC = () => {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600">
+        <motion.div
+          initial={growIn.initial}
+          whileInView={growIn.animate}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600"
+        >
           <h2 className="text-2xl font-bold mb-2 text-blue-300">
             Altura das Ondas ({waveUnitLabel})
           </h2>
@@ -619,9 +658,14 @@ const MarineWeather: React.FC = () => {
               />
             </LineChart>
           </ResponsiveContainer>
-        </div>
+        </motion.div>
 
-        <div className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600">
+        <motion.div
+          initial={growIn.initial}
+          whileInView={growIn.animate}
+          transition={{ duration: 0.7 }}
+          className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600"
+        >
           <h2 className="text-2xl font-bold mb-2 text-orange-300">
             Temperatura da Água ({tempUnitLabel})
           </h2>
@@ -680,10 +724,15 @@ const MarineWeather: React.FC = () => {
               />
             </LineChart>
           </ResponsiveContainer>
-        </div>
+        </motion.div>
 
         {/* Novo Gráfico: Nível do Mar */}
-        <div className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600">
+        <motion.div
+          initial={growIn.initial}
+          whileInView={growIn.animate}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600"
+        >
           <h2 className="text-2xl font-bold mb-2 text-green-300">
             Nível do Mar (MSL) (m)
           </h2>
@@ -742,10 +791,15 @@ const MarineWeather: React.FC = () => {
               />
             </LineChart>
           </ResponsiveContainer>
-        </div>
+        </motion.div>
 
         {/* Novo Gráfico: Direção Média das Ondas */}
-        <div className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600">
+        <motion.div
+          initial={growIn.initial}
+          whileInView={growIn.animate}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-all duration-300 hover:border-blue-600"
+        >
           <h2 className="text-2xl font-bold mb-2 text-purple-300">
             Direção Média das Ondas (°)
           </h2>
@@ -804,7 +858,7 @@ const MarineWeather: React.FC = () => {
               />
             </LineChart>
           </ResponsiveContainer>
-        </div>
+        </motion.div>
       </div>
 
       <span id="sobre" className="block mb-10"></span>
